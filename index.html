@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gerbang Ranah | Padang Cyber Security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1f0b0e;--panel:#2c1216;--line:#5a2a2e;--gold:#d4a73a;--cream:#f0e7d3;--dim:#b9a98f;--err:#ff8a7a}
+@media (prefers-color-scheme:light){:root{--bg:#f4ecda;--panel:#fffaf0;--line:#d9c9a5;--gold:#8a1c24;--cream:#2a1114;--dim:#6b5a4a;--err:#a3201a}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:var(--bg);color:var(--cream);font:16px/1.6 "Bitter",Georgia,serif;display:grid;place-items:center;padding:24px}
+.wrap{width:100%;max-width:460px}
+.roof{display:block;margin:0 auto 18px;width:120px;color:var(--gold)}
+h1{font-size:1.9rem;line-height:1.2;margin:0 0 6px;text-align:center}
+.sub{color:var(--dim);text-align:center;margin:0 0 26px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:24px}
+label{display:block;font-size:.9rem;color:var(--dim);margin:0 0 4px}
+input{width:100%;padding:10px 12px;margin:0 0 16px;background:transparent;border:1px solid var(--line);border-radius:4px;color:var(--cream);font:inherit}
+input:focus,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+button{width:100%;padding:11px;background:var(--gold);color:var(--bg);border:0;border-radius:4px;font:700 1rem "Bitter",serif;cursor:pointer}
+.err{min-height:1.4em;margin:14px 0 0;color:var(--err);font-size:.92rem}
+code,.mono{font-family:"IBM Plex Mono",monospace;font-size:.82rem;word-break:break-all}
+.blob{display:block;background:var(--bg);border:1px dashed var(--line);padding:10px;border-radius:4px;margin:6px 0 16px;color:var(--gold)}
+details{margin-top:14px;color:var(--dim);font-size:.92rem}
+summary{cursor:pointer}
+.note{font-size:.88rem;color:var(--dim);margin-top:18px;text-align:center}
+</style></head>
+<body><main class="wrap">
+<svg class="roof" viewBox="0 0 120 50" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M4 46 C20 40 24 22 30 4 C36 20 44 32 60 34 C76 32 84 20 90 4 C96 22 100 40 116 46"/><path d="M4 46h112"/></svg>
+<h1>Gerbang Ranah</h1>
+<p class="sub">Komunitas Padang Cyber Security, Sumatera Barat</p>
+<div class="card">
+<label for="u">Username</label><input id="u" autocomplete="off">
+<label for="p">Password</label><input id="p" type="password" autocomplete="off">
+<button id="go" type="button">Masuk</button>
+<p class="err" id="e" role="alert"></p>
+</div>
+<p class="note">Hanya untuk admin. Calon member: gerbangnya terkunci, cari jalan lain.</p>
+</main>
+<!-- TODO (admin): robots.txt belum dirapikan, jangan lupa sebelum rilis -->
+<script>
+const msgs=["Kredensial salah.","Password salah. Admin terakhir login kemarin.","Masih salah. Brute force tidak akan membantu di sini."];
+let n=0;
+document.getElementById("go").onclick=()=>{document.getElementById("e").textContent=msgs[Math.min(n++,msgs.length-1)];};
+console.log("%cMembobol form login itu buang waktu. Pikirkan apa yang mesin pencari dilarang lihat.","color:#d4a73a;font-size:14px");
+</script></body></html>
